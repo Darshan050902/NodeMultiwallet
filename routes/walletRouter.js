@@ -27,4 +27,31 @@ router.post("/walletFetch", async (req, res) => {
     });
   }
 });
+
+router.post("/pauseWallet", async (req, res) => {
+  console.log(req.body);
+  try {
+    const response = await axios.post(BASE_URL + "/wallets/status", req.body, {
+      headers: {
+        "x-tenant-id": "ZAGGLE",
+      },
+    });
+    if (response.status === 200) {
+      console.log(response.data);
+      return res.status(200).json({
+        message: "Wallet paused successfully",
+        data: response.data,
+      });
+    }
+    return res.status(401).json({
+      message: "Error pausing wallet",
+    });
+  } catch (error) {
+    // console.log(error);
+    return res.status(500).json({
+      message: "Server error",
+    });
+  }
+});
+
 module.exports = router;
