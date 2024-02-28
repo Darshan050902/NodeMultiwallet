@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const BASE_URL = "https://api-sandbox.hyperface.co/walletserv";
+const BASE_URL = "https://api-uat.hyperface.co/walletserv";
 
 const router = express.Router();
 
@@ -11,6 +11,7 @@ router.post("/fetch", async (req, res) => {
       req.body,
       {
         headers: {
+          apikey: "secret_5q2pjf7xjfwldlpv",
           "x-tenant-id": "ZAGGLE",
         },
       }
@@ -25,7 +26,7 @@ router.post("/fetch", async (req, res) => {
       message: "Error fetching ledgers",
     });
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     return res.status(500).json({
       message: "Server error",
     });

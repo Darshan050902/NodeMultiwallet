@@ -1,12 +1,14 @@
 const express = require("express");
 const axios = require("axios");
-const BASE_URL = "https://api-sandbox.hyperface.co/walletserv";
+const BASE_URL = "https://api-uat.hyperface.co/walletserv";
 const router = express.Router();
+
 router.post("/walletFetch", async (req, res) => {
   try {
     const response = await axios.post(BASE_URL + "/wallets/fetch", req.body, {
       headers: {
         "x-tenant-id": "ZAGGLE",
+        apikey: "secret_5q2pjf7xjfwldlpv",
       },
     });
     if (response.status === 200) {
@@ -19,7 +21,7 @@ router.post("/walletFetch", async (req, res) => {
       message: "Error fetching wallets",
     });
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     return res.status(500).json({
       message: "Server error",
     });
