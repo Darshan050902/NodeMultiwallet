@@ -1,12 +1,17 @@
 const express = require("express");
 const axios = require("axios");
 const BASE_URL = "https://api-uat.hyperface.co/walletserv";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53d13f3 (updated)
 const router = express.Router();
 
 router.post("/walletFetch", async (req, res) => {
   try {
     const response = await axios.post(BASE_URL + "/wallets/fetch", req.body, {
       headers: {
+        apikey: "secret_arbt87483egudd2i",
         "x-tenant-id": "ZAGGLE",
         apikey: "secret_5q2pjf7xjfwldlpv",
       },
@@ -31,8 +36,9 @@ router.post("/walletFetch", async (req, res) => {
 router.post("/pauseWallet", async (req, res) => {
   console.log(req.body);
   try {
-    const response = await axios.post(BASE_URL + "/wallets/status", req.body, {
+    const response = await axios.post(BASE_URL + "/wallets/update", req.body, {
       headers: {
+        apikey: "secret_arbt87483egudd2i",
         "x-tenant-id": "ZAGGLE",
       },
     });
@@ -53,5 +59,4 @@ router.post("/pauseWallet", async (req, res) => {
     });
   }
 });
-
 module.exports = router;

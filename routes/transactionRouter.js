@@ -11,7 +11,7 @@ router.post("/fetch", async (req, res) => {
       req.body,
       {
         headers: {
-          apikey: "secret_5q2pjf7xjfwldlpv",
+          apikey: "secret_arbt87483egudd2i",
           "x-tenant-id": "ZAGGLE",
         },
       }
