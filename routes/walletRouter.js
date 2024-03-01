@@ -1,10 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const BASE_URL = "https://api-uat.hyperface.co/walletserv";
-<<<<<<< HEAD
-=======
 
->>>>>>> 53d13f3 (updated)
 const router = express.Router();
 
 router.post("/walletFetch", async (req, res) => {
